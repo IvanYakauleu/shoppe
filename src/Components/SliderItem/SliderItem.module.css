@@ -1,0 +1,52 @@
+.item {
+  position: relative;
+  padding: 226px 0 0 40px;
+  border-radius: 16px;
+  margin: 0 auto;
+  max-width: var(--max-width);
+  min-height: 646px;
+}
+
+.img {
+  position: absolute;
+  border-radius: 16px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.title {
+  color: var(--light-colors-white-light, #fff);
+  font-family: DM Sans;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 43px;
+  margin-bottom: 16px;
+}
+
+.price {
+  color: var(--light-colors-white-light, #fff);
+
+  font-family: DM Sans;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35px;
+  margin-bottom: 48px;
+}
+
+.button {
+  background: none;
+  width: 193px;
+  height: 53px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 2px solid var(--light-colors-white-light, #fff);
+  color: var(--light-colors-white-light, #fff);
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
