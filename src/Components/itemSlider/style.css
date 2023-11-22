@@ -1,0 +1,29 @@
+.slider {
+  display: grid;
+  grid-template-columns: 120px 540px;
+  gap: 39px;
+  grid-template-rows: 620px;
+}
+
+.slider .swiper-slide {
+  display: flex;
+  align-items: flex-start;
+}
+.slider .swiper-pagination-progressbar-fill {
+  background: #707070 !important;
+}
+.slider .swiper-pagination-progressbar {
+  background: #d8d8d8 !important;
+  height: 2px !important;
+  top: 610px !important;
+}
+.mySwiper {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+}
+
+.mySwiper2 {
+  width: 100%;
+  height: 100%;
+}

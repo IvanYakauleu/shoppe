@@ -1,0 +1,77 @@
+.container {
+  max-width: 670px;
+  margin: 0 auto;
+  padding-top: 96px;
+}
+
+.about {
+  text-align: center;
+  color: var(--light-colors-black-light, #000);
+
+  /* 33px - Heading 1 */
+  font-family: DM Sans;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 43px; /* 130.303% */
+}
+
+.title {
+  text-align: center;
+  color: var(--light-colors-black-light, #000);
+  text-align: center;
+
+  /* 20px - Heading 3 */
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 130% */
+  margin-top: 24px;
+}
+
+.text {
+  margin-top: 48px;
+  color: var(--light-colors-black-light, #000);
+
+  /* 16px - Heading 5 */
+  font-family: DM Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px; /* 168.75% */
+}
+
+.leftTitle {
+  margin-top: 39px;
+  color: var(--light-colors-black-light, #000);
+
+  /* 26px - Heading 2 */
+  font-family: DM Sans;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 35px; /* 134.615% */
+}
+
+.img {
+  margin-top: 23px;
+  border-radius: 8px;
+}
+
+.list {
+  margin-top: 16px;
+  padding-left: 30px;
+}
+
+.listItem {
+  color: var(--light-colors-black-light, #000);
+
+  /* 12px - Body Small */
+  font-family: DM Sans;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 166.667% */
+  margin-top: 16px;
+}

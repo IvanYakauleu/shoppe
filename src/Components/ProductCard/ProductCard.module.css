@@ -1,0 +1,55 @@
+.img {
+  border-radius: 8px;
+}
+
+.title {
+  color: var(--light-colors-black-light, #000);
+
+  /* 20px - Heading 3 */
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 130% */
+  margin-top: 24px;
+}
+
+.price {
+  color: var(--light-colors-accent-light, #a18a68);
+
+  /* 20px - Heading 4 */
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 130% */
+  text-transform: capitalize;
+  margin-top: 16px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.hover {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.hover:hover {
+  opacity: 1;
+}
+
+.icon {
+  cursor: pointer;
+}

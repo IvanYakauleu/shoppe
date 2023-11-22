@@ -1,23 +1,18 @@
 import styles from './Header.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import NavHeader from '../NavHeader/NavHeader';
 
 const Header = () => {
   return (
     <header className={styles.wrapper}>
-      <h1 className={styles.logo}>
-        <span>S</span>HOPPE
-      </h1>
+      <Link href="/">
+        <h1 className={styles.logo}>
+          <span>S</span>HOPPE
+        </h1>
+      </Link>
       <div className={styles.menuWrapper}>
-        <Link className={styles.link} href="/">
-          Shop
-        </Link>
-        <Link className={styles.link} href="/">
-          Blog
-        </Link>
-        <Link className={styles.link} href="/">
-          Our Story
-        </Link>
+        <NavHeader />
         <div className={styles.line} />
         <Link className={styles.icon} href="/">
           <Image src="/search.svg" width={19} height={19} alt="search" />
