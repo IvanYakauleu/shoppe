@@ -12,7 +12,7 @@ export interface IMassCard {
   price: number;
 }
 
-export const getData = async () => {
+const getData = async () => {
   const res = await fetch('http://localhost:3000/api/items', {
     cache: 'no-store',
   });

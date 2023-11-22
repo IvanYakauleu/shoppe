@@ -50,7 +50,7 @@ const ItemCard = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return (
     <main className={styles.container}>
