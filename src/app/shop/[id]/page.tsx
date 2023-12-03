@@ -114,6 +114,7 @@ const ItemCard = () => {
           </div>
           <DescItem
             desc={dataItem.desc}
+            id={dataItem._id}
             weight={dataItem.weight}
             dimensions={dataItem.dimensions}
             colours={dataItem.colors}
