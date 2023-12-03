@@ -5,7 +5,6 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <>
       <footer className={styles.footer}>
         <div className={styles.wrapper}>
           <div className={styles.links}>
@@ -50,8 +49,6 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <div></div>
-    </>
   );
 };
 
