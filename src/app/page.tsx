@@ -38,7 +38,7 @@ export interface IJewelry {
   rating: number;
 }
 
-const Home = async () => {
+const Page = async () => {
   const data: IJewelry[] = await getData();
 
   return (
@@ -69,4 +69,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default Page;

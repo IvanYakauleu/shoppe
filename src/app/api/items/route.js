@@ -12,12 +12,16 @@ export async function GET(req) {
     const filterBy = url.searchParams.get('filter');
     const priceMin = url.searchParams.get('priceMin');
     const priceMax = url.searchParams.get('priceMax');
+    const searchBy = url.searchParams.get('searchBy');
 
     let sortOption = {};
     let filterOption = {};
 
     if (priceMin && priceMax) {
       filterOption = { price: { $gte: Number(priceMin), $lte: Number(priceMax) } };
+    }
+    if (searchBy) {
+      filterOption.name = { $regex: searchBy, $options: 'i' };
     }
 
     switch (sortBy) {

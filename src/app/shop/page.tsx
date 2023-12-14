@@ -2,13 +2,14 @@
 
 import styles from './page.module.css';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import ProductCard from '@/Components/ProductCard/ProductCard';
 
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { IJewelry } from '../page';
+import { FormEvent } from 'react';
 
 const Shop = () => {
   const [range, setRange] = useState<number | number[]>([0, 5000]);
@@ -17,6 +18,8 @@ const Shop = () => {
   const [dataItems, setDataItems] = useState<IJewelry[]>();
   const [sortBy, setSortBy] = useState<string>('none');
   const [filterBy, setFilterBy] = useState<string>('none');
+
+  const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,13 +56,36 @@ const Shop = () => {
     }
   };
 
+  const searchSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (Array.isArray(range)) {
+      try {
+        if (searchRef.current) {
+          const response = await fetch(
+            `/api/items?searchBy=${searchRef.current.value}&sortBy=${sortBy}&filter=${filterBy}&priceMin=${range[0]}&priceMax=${range[1]}`,
+          );
+          const data = await response.json();
+          setDataItems(data);
+        }
+      } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+      }
+    }
+  };
+
   return (
     <main className={styles.container}>
       <div className={styles.title}>Shop The Latest</div>
       <div className={styles.wrapper}>
         <div className={styles.forms}>
-          <form action="#" className={styles.form}>
-            <input type="text" name="search" placeholder="Search..." className={styles.search} />
+          <form action="#" className={styles.form} onSubmit={(e) => searchSubmit(e)}>
+            <input
+              type="text"
+              name="search"
+              placeholder="Search..."
+              className={styles.search}
+              ref={searchRef}
+            />
             <button type="submit" className={styles.submit}></button>
           </form>
           <select
