@@ -2,6 +2,7 @@
 
 import styles from './DescItem.module.css';
 import Rewiew from '../Rewiew/Rewiew';
+import { FormEvent } from 'react';
 
 import dynamic from 'next/dynamic';
 
@@ -18,11 +19,42 @@ interface IDescItemProps {
   colours: string[];
   material: string;
   name: string;
+  id: string;
 }
 
-const DescItem = ({ desc, weight, dimensions, colours, material, name }: IDescItemProps) => {
+const DescItem = ({ desc, weight, dimensions, colours, material, name, id }: IDescItemProps) => {
   const [activeItem, setActiveItem] = useState('Desc');
   const [rating, setRating] = useState<number>(0);
+  const [userName, setUserName] = useState<string>('');
+  const [userEmail, setUserEmail] = useState<string>('');
+  const [userReview, setUserReview] = useState<string>('');
+
+  const postReviewForm = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = {
+      rating: `${rating}`,
+      user: userName,
+      email: userEmail,
+      review: userReview,
+      product: id,
+    };
+    try {
+      await fetch('/api/reviews', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      setRating(0);
+      setUserEmail('');
+      setUserName('');
+      setUserReview('');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className={styles.wrap}>
@@ -84,17 +116,28 @@ const DescItem = ({ desc, weight, dimensions, colours, material, name }: IDescIt
             <div className={styles.text}>
               Your email address will not be published. Required fields are marked *
             </div>
-            <form action="#" className={styles.form}>
+            <form action="#" className={styles.form} onSubmit={(e) => postReviewForm(e)}>
               <textarea
                 required
                 name="rewiew"
+                value={userReview}
                 id="rewiew"
                 className={styles.textarea}
+                onChange={(e) => setUserReview(e.target.value)}
                 placeholder="Your Review*"></textarea>
-              <input required className={styles.input} type="name" placeholder="Enter your name*" />
               <input
                 required
                 className={styles.input}
+                value={userName}
+                type="name"
+                onChange={(e) => setUserName(e.target.value)}
+                placeholder="Enter your name*"
+              />
+              <input
+                required
+                value={userEmail}
+                className={styles.input}
+                onChange={(e) => setUserEmail(e.target.value)}
                 type="email"
                 placeholder="Enter your Email*"
               />
